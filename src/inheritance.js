@@ -13,6 +13,11 @@ Rectangle.prototype.area = function () {
   return ar
 }
 
+Rectangle.prototype.description = function () {
+  var des = ('Rectangle of width ' + this.width + ', height ' + this.height + ' and area ' + this.area() + '.')
+  return des
+}
+
 // SQUARE /////////////////////////////////////////////////////////////////////
 // Square es un tipus concret de Rectangle //
 
@@ -24,6 +29,11 @@ function Square (n) {
 
 // HERENCIA //////////////////
 Square.prototype = new Rectangle()
+
+Square.prototype.description = function () {
+  var des = ('Square of side ' + this.width + ' and area ' + this.area() + '.')
+  return des
+}
 
 // MODULE /////////////////////////////////////////////////////////////////////
 var Inheritance = {}
