@@ -1,0 +1,24 @@
+{
+  "name": "js-practice",
+  "version": "0.1.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "standard && tape test/*.js | tap-spec"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dasilvacontin/js-practice.git"
+  },
+  "author": "David da Silva Contín",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/dasilvacontin/js-practice/issues"
+  },
+  "homepage": "https://github.com/dasilvacontin/js-practice#readme",
+  "devDependencies": {
+    "standard": "^4.4.1",
+    "tap-spec": "^4.0.2",
+    "tape": "^4.0.0"
+  }
+}
