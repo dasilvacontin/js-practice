@@ -17,9 +17,9 @@ Rectangle.prototype.area = function () {
 // Square es un tipus concret de Rectangle //
 
 // CONSTRUCTOR //////////////////
-function Square (side) {
-  this.width = side
-  this.height = side
+function Square (n) {
+  this.width = n
+  this.height = n
 }
 
 // HERENCIA //////////////////
