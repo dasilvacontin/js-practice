@@ -22,30 +22,32 @@ test('Square constructor', function (t) {
   t.equal(squ.height, 7, 'should set square height')
 })
 
-test('Rectangle and Square area can be calculated', function (t) {
-  t.plan(7)
+test('Rectangle::area', function (t) {
+  t.plan(3)
 
   var rec = new Rectangle(5, 10)
-  t.equal(typeof rec.area, 'function')
-  t.equal(rec.area(), 50, 'rectangle area')
-
-  var squ = new Square(7)
-  t.equal(typeof squ.area, 'function')
-  t.equal(squ.area(), 49, 'square area')
-
-  t.equal(squ.area, rec.area, 'Square inherits area method from Rectangle')
-  t.ok(Rectangle.prototype.hasOwnProperty('area'), 'area method in Rectangle prototype')
-  t.notOk(Square.prototype.hasOwnProperty('area'), 'area method not in Square prototype')
+  t.equal(typeof rec.area, 'function', 'should be a function')
+  t.equal(rec.area(), 50, 'should calculate correctly')
+  t.ok(Rectangle.prototype.hasOwnProperty('area'), 'resides in prototype')
 })
 
-test('Rectangle and Square description', function (t) {
+test('Square::area', function (t) {
+  t.plan(3)
+
+  var squ = new Square(7)
+  t.equal(typeof squ.area, 'function', 'should be a function')
+  t.notOk(Square.prototype.hasOwnProperty('area'), 'should not reside in prototype')
+  t.equal(squ.area, Rectangle.prototype.area, 'should be inherited from Rectangle')
+})
+
+test('Rectangle/Square::description', function (t) {
   t.plan(4)
 
   var rec = new Rectangle(5, 10)
-  t.equal(typeof rec.description, 'function')
-  t.equal(rec.description(), 'Rectangle of width 5, height 10 and area 50.', 'should describe rectangle')
+  t.equal(typeof rec.description, 'function', 'should be a function')
+  t.equal(rec.description(), 'Rectangle of width 5, height 10 and area 50.', 'should return rectangle\'s description')
 
   var squ = new Square(7)
-  t.equal(typeof squ.description, 'function')
-  t.equal(squ.description(), 'Square of side 7 and area 49.', 'should describe square')
+  t.equal(typeof squ.description, 'function', 'should be a function')
+  t.equal(squ.description(), 'Square of side 7 and area 49.', 'should return square\'s description')
 })
