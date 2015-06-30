@@ -23,7 +23,7 @@ Square.prototype.description = function () {
 }
 
 var constructors = {}
-constructors.Rectangle = Rectangle()
-constructors.Square = Square()
+constructors.Rectangle = Rectangle
+constructors.Square = Square
 
 module.exports = constructors
