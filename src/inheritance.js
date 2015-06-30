@@ -8,6 +8,10 @@ Rectangle.prototype.area = function () {
   return this.width * this.height
 }
 
+Rectangle.prototype.description = function () {
+  return 'Rectangle of width ' + this.width + ', height ' + this.height + ' and area ' + this.area() + '.'
+}
+
 function Square (side) {
   this.side = side
   this.width = side
@@ -15,6 +19,10 @@ function Square (side) {
 }
 
 Square.prototype = new Rectangle()
+
+Square.prototype.description = function () {
+  return 'Square of side ' + this.side + ' and area ' + this.area() + '.'
+}
 
 module.exports = {
 	Rectangle: Rectangle,
