@@ -32,10 +32,11 @@ test('Rectangle::area', function (t) {
 })
 
 test('Square::area', function (t) {
-  t.plan(3)
+  t.plan(4)
 
   var squ = new Square(7)
   t.equal(typeof squ.area, 'function', 'should be a function')
+  t.notOk(squ.hasOwnProperty('area'), 'should not be an instance property')
   t.notOk(Square.prototype.hasOwnProperty('area'), 'should not reside in prototype')
   t.equal(squ.area, Rectangle.prototype.area, 'should be inherited from Rectangle')
 })
