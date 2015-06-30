@@ -1,6 +1,6 @@
 var test = require('tape')
 
-var constructors = require('../src/inheritance')
+var constructors = require('../src/inheritance.js')
 var Rectangle = constructors.Rectangle
 var Square = constructors.Square
 
@@ -17,12 +17,14 @@ test('Rectangle and Square constructors should set width and height', function (
 })
 
 test('Rectangle and Square area can be calculated', function (t) {
-  t.plan(5)
+  t.plan(7)
 
   var rec = new Rectangle(5, 10)
+  t.equal(typeof rec.area, 'function')
   t.equal(rec.area(), 50, 'rectangle area')
 
   var squ = new Square(7)
+  t.equal(typeof squ.area, 'function')
   t.equal(squ.area(), 49, 'square area')
 
   t.equal(squ.area, rec.area, 'Square inherits area method from Rectangle')
@@ -31,11 +33,13 @@ test('Rectangle and Square area can be calculated', function (t) {
 })
 
 test('Rectangle and Square description', function (t) {
-  t.plan(2)
+  t.plan(4)
 
   var rec = new Rectangle(5, 10)
+  t.equal(typeof rec.description, 'function')
   t.equal(rec.description(), 'Rectangle of width 5, height 10 and area 50.', 'should describe rectangle')
 
   var squ = new Square(7)
+  t.equal(typeof squ.description, 'function')
   t.equal(squ.description(), 'Square of side 7 and area 49.', 'should describe square')
 })
