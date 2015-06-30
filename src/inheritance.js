@@ -9,7 +9,7 @@ Rectangle.prototype.area = function () {
 }
 
 Rectangle.prototype.description = function () {
-  console.log('Rectangle of width ' + this.width + ', height ' + this.height + ' and area ' + this.area() + '.')
+  return 'Rectangle of width ' + this.width + ', height ' + this.height + ' and area ' + this.area() + '.'
 }
 
 function Square (n) {
@@ -19,7 +19,7 @@ function Square (n) {
 Square.prototype = new Rectangle()
 
 Square.prototype.description = function () {
-  console.log('Square of side ' + this.width + ' and area ' + this.area() + '.')
+  return 'Square of side ' + this.width + ' and area ' + this.area() + '.'
 }
 
 var constructors = {}
