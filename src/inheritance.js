@@ -22,5 +22,8 @@ Square.prototype.description = function () {
   console.log('Square of side ' + this.width + ' and area ' + this.area() + '.')
 }
 
-module.exports = Rectangle
-module.exports = Square
+var constructors = {}
+constructors.Rectangle = Rectangle()
+constructors.Square = Square()
+
+module.exports = constructors
