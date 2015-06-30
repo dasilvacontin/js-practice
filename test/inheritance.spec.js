@@ -1,8 +1,8 @@
 var test = require('tape')
 
-var constructors = require('../src/inheritance')
-var Rectangle = constructors.Rectangle
-var Square = constructors.Square
+// var constructors = require('../src/inheritance')
+var Rectangle = require('../Rectangle')
+var Square = require('../Square')
 
 test('Rectangle and Square constructors should set width and height', function (t) {
   t.plan(4)
