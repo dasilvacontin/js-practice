@@ -3,8 +3,8 @@ function Rectangle (w, h) {
   this.width = w
   this.height = h
 }
-function Square (w) {
-  this.width = this.height = w
+function Square (n) {
+  Rectangle.call(this, n, n)
 }
 
 Rectangle.prototype.area = function () {
