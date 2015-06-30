@@ -4,13 +4,19 @@ var constructors = require('../src/inheritance.js')
 var Rectangle = constructors.Rectangle
 var Square = constructors.Square
 
-test('Rectangle and Square constructors should set width and height', function (t) {
-  t.plan(4)
+test('Rectangle constructor', function (t) {
+  t.plan(3)
 
+  t.equal(typeof Rectangle, 'function', 'should be a function')
   var rec = new Rectangle(5, 10)
   t.equal(rec.width, 5, 'should set rectangle width')
   t.equal(rec.height, 10, 'should set rectangle height')
+})
 
+test('Square constructor', function (t) {
+  t.plan(3)
+
+  t.equal(typeof Square, 'function', 'should be a function')
   var squ = new Square(7)
   t.equal(squ.width, 7, 'should set square width')
   t.equal(squ.height, 7, 'should set square height')
