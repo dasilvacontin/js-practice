@@ -6,17 +6,17 @@ Rectangle.prototype.area = function () {
   return this.width * this.height
 }
 
-Rectangle.prototype.description = function() {
-  return 'Rectangle of width ' + this.weidth + ', height ' + this.height + ' and area ' + this.area() + '.'
+Rectangle.prototype.description = function () {
+  return 'Rectangle of width ' + this.width + ', height ' + this.height + ' and area ' + this.area() + '.'
 }
 
 function Square (side) {
   Rectangle.call(this, side, side)
 }
 
-Square.prototype.area = new Rectangle()
+Square.prototype = new Rectangle()
 
-Square.prototype.description = function() {
+Square.prototype.description = function () {
   return 'Square of side ' + this.width + ' and area ' + this.area() + '.'
 }
 
