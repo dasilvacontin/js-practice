@@ -23,8 +23,7 @@ Rectangle.prototype.description = function () {
 
 // CONSTRUCTOR //////////////////
 function Square (n) {
-  this.width = n
-  this.height = n
+  Rectangle.call(this, n, n)
 }
 
 // HERENCIA //////////////////
