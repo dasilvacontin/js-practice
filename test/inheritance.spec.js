@@ -1,41 +1,54 @@
 var test = require('tape')
 
-// var constructors = require('../src/inheritance')
-var Rectangle = require('../Rectangle')
-var Square = require('../Square')
+var constructors = require('../src/inheritance.js')
+var Rectangle = constructors.Rectangle
+var Square = constructors.Square
 
-test('Rectangle and Square constructors should set width and height', function (t) {
-  t.plan(4)
+test('Rectangle constructor', function (t) {
+  t.plan(3)
 
+  t.equal(typeof Rectangle, 'function', 'should be a function')
   var rec = new Rectangle(5, 10)
   t.equal(rec.width, 5, 'should set rectangle width')
   t.equal(rec.height, 10, 'should set rectangle height')
+})
 
+test('Square constructor', function (t) {
+  t.plan(3)
+
+  t.equal(typeof Square, 'function', 'should be a function')
   var squ = new Square(7)
   t.equal(squ.width, 7, 'should set square width')
   t.equal(squ.height, 7, 'should set square height')
 })
 
-test('Rectangle and Square area can be calculated', function (t) {
-  t.plan(5)
+test('Rectangle::area', function (t) {
+  t.plan(3)
 
   var rec = new Rectangle(5, 10)
-  t.equal(rec.area(), 50, 'rectangle area')
-
-  var squ = new Square(7)
-  t.equal(squ.area(), 49, 'square area')
-
-  t.equal(squ.area, rec.area, 'Square inherits area method from Rectangle')
-  t.ok(Rectangle.prototype.hasOwnProperty('area'), 'area method in Rectangle prototype')
-  t.notOk(Square.prototype.hasOwnProperty('area'), 'area method not in Square prototype')
+  t.equal(typeof rec.area, 'function', 'should be a function')
+  t.equal(rec.area(), 50, 'should calculate correctly')
+  t.ok(Rectangle.prototype.hasOwnProperty('area'), 'resides in prototype')
 })
 
-test('Rectangle and Square description', function (t) {
-  t.plan(2)
-
-  var rec = new Rectangle(5, 10)
-  t.equal(rec.description(), 'Rectangle of width 5, height 10 and area 50.', 'should describe rectangle')
+test('Square::area', function (t) {
+  t.plan(4)
 
   var squ = new Square(7)
-  t.equal(squ.description(), 'Square of side 7 and area 49.', 'should describe square')
+  t.equal(typeof squ.area, 'function', 'should be a function')
+  t.notOk(squ.hasOwnProperty('area'), 'should not be an instance property')
+  t.notOk(Square.prototype.hasOwnProperty('area'), 'should not reside in prototype')
+  t.equal(squ.area, Rectangle.prototype.area, 'should be inherited from Rectangle')
+})
+
+test('Rectangle/Square::description', function (t) {
+  t.plan(4)
+
+  var rec = new Rectangle(5, 10)
+  t.equal(typeof rec.description, 'function', 'should be a function')
+  t.equal(rec.description(), 'Rectangle of width 5, height 10 and area 50.', 'should return rectangle\'s description')
+
+  var squ = new Square(7)
+  t.equal(typeof squ.description, 'function', 'should be a function')
+  t.equal(squ.description(), 'Square of side 7 and area 49.', 'should return square\'s description')
 })
