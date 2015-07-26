@@ -1,8 +1,7 @@
 var test = require('tape')
 
-var constructors = require('../src/inheritance.js')
-var Rectangle = constructors.Rectangle
-var Square = constructors.Square
+var Rectangle = require('../src/Rectangle.js')
+var Square = require('../src/Square.js')
 
 test('Rectangle constructor', function (t) {
   t.plan(3)
